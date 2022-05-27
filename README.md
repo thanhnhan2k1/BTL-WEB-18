@@ -1,13 +1,13 @@
 # BTL-WEB-18
 1. Mô tả hệ thống
-1.1 Các chức năng đối với khách hàng
+ # Các chức năng đối với khách hàng
   - Khách hàng có thể đăng kí, đăng nhập với tài khoản đã đăng kí, đăng xuất tài khoản
   - Khách hàng có thể tìm kiếm phòng trống theo ngày check in, ngày check out
   - Xem thông tin của từng phòng
   - Đặt phòng
   - Xem giỏ hàng các phòng khách hàng muốn đặt
   -  Xác nhận thanh toán phòng
- 1.2 Các chức năng với người quản lí
+# Các chức năng với người quản lí
  - Đăng nhập với tư cách admin, đăng xuất tài khoản
  - Quản lí phòng: xem, thêm, sửa , xóa các phòng
  - Xem thông tin, thông tin chi tiết khách hàng đã đăng kí trong hệ thống, tìm kiếm khách theo tên hoặc là số điện thoại
