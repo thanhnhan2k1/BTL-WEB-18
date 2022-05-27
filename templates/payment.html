@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hotel Website</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/payment.css">
+
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
+		integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+		integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<include src="./header.html"></include>
+	<div class="container mt-4 p-0">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white pt-3 px-md-4 px-2">
+
+		</nav>
+		<div class="row px-md-4 px-2 pt-4">
+			<div class="col-lg-8">
+				<p class="pb-2 fw-bold">Order</p>
+				<div class="card">
+					<div class="ribbon ribbon-top-right"><span>SALE TIME!</span></div>
+					<div>
+						<div class="table-responsive px-md-4 px-2 pt-3">
+							<table class="table table-borderless">
+								<tbody>
+									
+									<tr>
+										<div th:each="room : ${rooms}">
+											<div class="listroom">
+												<div class="room-image">
+													<img class="pic" th:src="${room.room_img}" alt="">
+												</div>
+												<div class="room-name">
+													<label th:text="${room.name}" th:value="${room.name}"></label>
+
+												</div>
+												<div class="room-type">
+													<label th:text="${room.type}" th:value="${room.type}"></label>
+												</div>
+												
+												<div class="room-price">
+													<label th:text="${room.price}" th:value="${room.price}"></label>
+												</div>
+												<div class="room-saleoff">
+													<label>20%</label>
+												</div>
+												
+											</div>
+										</div>
+									</tr>
+									<tr class="border-bottom">
+										<td>
+											<div class="d-flex align-items-center">
+												<div> <img class="pic"
+														src="https://images.pexels.com/photos/7322083/pexels-photo-7322083.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+														alt=""> </div>
+												<div class="ps-3 d-flex flex-column">
+													<p class="fw-bold">Court<span class="ps-1">Dri-FIT</span></p> <small
+														class=" d-flex"> <span class=" text-muted">Color:</span> <span
+															class="fw-bold">Dark Blue</span> </small> <small class="">
+														<span class=" text-muted">Size:</span> <span
+															class="fw-bold">L</span> </small>
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="d-flex">
+												<p class="pe-3"><span class="red">$45.00</span></p>
+												<p class="text-muted text-decoration-line-through">$55.00</p>
+											</div>
+										</td>
+										<td>
+											<div class="d-flex align-items-center"> <span
+													class="pe-3 text-muted">Quantity</span> <span class="pe-3"> <input
+														class="ps-2" type="number" value="2"></span>
+												<div class="round"> <span class=""> L </span> </div>
+											</div>
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 payment-summary">
+				<p class="fw-bold pt-lg-0 pt-4 pb-2">Payment Summary</p>
+				<div class="card px-md-3 px-2 pt-4">
+					<div class="unregistered mb-4"> <span class="py-1">unregistered account</span> </div>
+					<div class="d-flex justify-content-between pb-3"> <small class="text-muted">Transaction code</small>
+						<p class="">VC115665</p>
+					</div>
+					<div class="d-flex justify-content-between b-bottom"> <input type="text" class="ps-2"
+							placeholder="COUPON CODE">
+						<div class="btn btn-primary">Apply</div>
+					</div>
+					<div class="d-flex flex-column b-bottom">
+						<div class="d-flex justify-content-between py-3"> <small class="text-muted">Order
+								Summary</small>
+							<p>$122</p>
+						</div>
+						<div class="d-flex justify-content-between pb-3"> <small class="text-muted">Additional
+								Service</small>
+							<p>$22</p>
+						</div>
+						<div class="d-flex justify-content-between"> <small class="text-muted">Total Amount</small>
+							<p>$132</p>
+						</div>
+					</div>
+					<div class="sale my-3"> <span>sale<span class="px-1">expiring</span><span>in</span>:</span><span
+							class="red">21<span class="ps-1">hours</span>,31<span class="ps-1 ">minutes</span></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p class="pt-4 fw-bold pb-3">Additional Service</p>
+				<div class="card p-3 mb-2">
+					<div class="d-flex align-items-center justify-content-between">
+						<div>
+							<p class="fw-bold">Care + package</p> <small class="text-muted">One year of additional
+								Care</small>
+						</div>
+						<div class="d-flex align-items-center">
+							<p class="pe-3">$10.00</p>
+							<div class="form-check form-switch"> <input class="form-check-input" type="checkbox"
+									id="SwitchCheck"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="card p-3 mb-2">
+					<div class="d-flex align-items-center justify-content-between">
+						<div>
+							<p class="fw-bold">Golden Guard</p> <small class="text-muted">30 days more for
+								return</small>
+						</div>
+						<div class="d-flex align-items-center">
+							<p class="pe-3">$5.00</p>
+							<div class="form-check form-switch"> <input class="form-check-input" type="checkbox"
+									id="SwitchCheck"> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<a th:href="@{/confirm}"><button class="checkout">Confirm</button></a>
+		<a th:href="@{/home}"><button class="cancel">Cancel</button></a>
+		<footer>
+		<div class="container grid top">
+			<div class="box">
+				<img
+					src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+				<p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+					est laborum.</p>
+
+				<p>Accepted payment methods</p>
+				<div class="payment grid">
+					<img src="https://img.icons8.com/color/48/000000/visa.png" />
+					<img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+					<img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+					<img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+				</div>
+			</div>
+
+			<div class="box">
+				<h3>Recent News</h3>
+
+				<ul>
+					<li>Our Secret Island Boat Tour Is Just for You</li>
+					<li>Chill and Escape in Our Natural Shelters</li>
+					<li>September in Luviana Hotel</li>
+					<li>Live Music Concerts at Luviana</li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<h3>For Customers</h3>
+				<ul>
+					<li>About Luviana</li>
+					<li>Customer Care/Help</li>
+					<li>Corporate Accounts</li>
+					<li>Financial Information</li>
+					<li>Terms & Conditions</li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<h3>Contact Us</h3>
+
+				<ul>
+					<li>3015 Grand Ave, Cocount Grove, Merrick Way FL 123456</li>
+					<li><i class="far fa-envelope"></i>demoexample@gmail.com </li>
+					<li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+					<li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+					<li><i class="far fa-comments"></i>24/ 7 Customer Services </li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

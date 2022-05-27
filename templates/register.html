@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hotel Website</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/registerstyle.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<form th:action="@{/register}" id="form-register" th:object="${user}" method="post">
+			<h1 class="form-heading">Register Form</h1>
+			<h2><label th:text="${mes}" th:value="${mes}" > </label></h2>
+			<div class="form-group">
+				<input type="text" th:field="*{name}" class="form-input" placeholder="Full Name" required>
+			</div>
+			<div class="form-group">
+				<input type="date" class="form-input" placeholder="Your BirthDay" th:field="*{birthday}" required>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-input" placeholder="Address" th:field="*{address}" required>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-input" placeholder="Phone" th:field="*{phone}" required>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-input" placeholder="Email" th:field="*{email}" required>
+			</div>
+
+			<div class="form-group">
+				<i class="far fa-user"></i>
+				<input type="text" class="form-input" placeholder="Username" th:field="*{username}" required>
+			</div>
+			<div class="form-group">
+				<i class="fas fa-key"></i>
+				<input type="password" class="form-input" placeholder="Password" th:field="*{password}" required>
+				<div id="eye">
+					<i class="far fa-eye"></i>
+				</div>
+			</div>
+
+			<input type="submit" value="Submit" class="form-submit">
+		</form>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="js/app.js"></script>
+
+</html>
