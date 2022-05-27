@@ -1,5 +1,5 @@
 $.ajax({
-	url: 'orders/linechartdata',
+	url: 'adminpage/linechartdata',
 	success: function(result) {
 		var name = JSON.parse(result).name;
 		var revenue = JSON.parse(result).revenue;
