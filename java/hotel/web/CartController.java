@@ -57,9 +57,13 @@ public class CartController {
 		model.addAttribute("rooms", rooms);
 	}
 	@GetMapping()
-	public String showmycart(@RequestParam(name="id") int code, ArrayList<Room> rooms, Model model) {
+	public String showmycart(@RequestParam(name="id") int code, ArrayList<Room> rooms, Model model, HttpSession session) {
 		//addRoomtoCart(code, model);
 		//model.addAttribute("rooms", rooms);
+		String username = (String) session.getAttribute("username");
+		if(username==null) {
+			return "usererrors";
+		}
 		model.addAttribute("cart", rooms);
 		return "cart";
 	}
