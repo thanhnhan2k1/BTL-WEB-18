@@ -15,7 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/homepage")
 public class HomeClientController {
 	@GetMapping
-	public String homeClient() {
+	public String homeClient(HttpSession session) {
+		String username = (String) session.getAttribute("username");
+		if(username==null) {
+			return "usererrors";
+		}
 		return "home";
 	}
 }
