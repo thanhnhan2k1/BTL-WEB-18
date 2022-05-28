@@ -50,6 +50,11 @@ public class AdminHomeController {
 	}
 	@GetMapping
 	public String homeAdmin() {
+		int role = (int) session.getAttribute("role");
+		String username = (String) session.getAttribute("username");
+		if(role == 1|| username==null) {
+			return "error";
+		}
 		return "stats";
 	}
 	
