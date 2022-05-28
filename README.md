@@ -2,6 +2,7 @@
 1. Mô tả hệ thống
  # Các chức năng đối với khách hàng
   - Khách hàng có thể đăng kí, đăng nhập với tài khoản đã đăng kí, đăng xuất tài khoản
+  - Khách hàng có thể nhắn tin trực tiếp với khách sạn
   - Khách hàng có thể tìm kiếm phòng trống theo ngày check in, ngày check out
   - Xem thông tin của từng phòng
   - Đặt phòng
