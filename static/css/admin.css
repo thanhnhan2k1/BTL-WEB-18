@@ -75,6 +75,13 @@ header ul li a {
   color: white;
   transition: 0.5s;
 }
+header ul li label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color:bisque ;
+  transition: 0.5s;
+}
+
 
 header ul li a:hover {
   color: #C1B086;
@@ -535,6 +542,7 @@ input {
 
 .room label {
   font-size: 17px;
+  color:black;
 }
 
 /*--------------room--------*/
