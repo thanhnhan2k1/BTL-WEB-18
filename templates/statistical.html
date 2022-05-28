@@ -61,17 +61,19 @@
 			</form>
 			<table>
 				<tr>
-					<th>Id</th>
-					<th>Roomid</th>
-					<th>Price</th>
-					<th>Sale off</th>
-					<th>Checkin</th>
-					<th>Checkout</th>
-					<th>Amount</th>
+					<th align="left">Id</th>
+					<th align="left">Room ID</th>
+					<th align="left">Customer ID</th>
+					<th align="left">Price</th>
+					<th align="left">Sale off</th>
+					<th align="left">Checkin</th>
+					<th align="left">Checkout</th>
+					<th align="left">Amount</th>
 				</tr>
 				<tr th:each="order : ${orderdetails}" valign="top">
 					<td th:text="${order.id}">Id</td>
 					<td th:text="${order.roomid}">Roomid</td>
+					<td th:text="${order.userid}">Customerid</td>
 					<td th:text="${order.price}">Price</td>
 					<td th:text="${order.saleoff}">Saleoff</td>
 					<td th:text="${order.checkin}">Checkin</td>
