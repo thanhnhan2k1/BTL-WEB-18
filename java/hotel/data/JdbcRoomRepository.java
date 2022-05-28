@@ -1,21 +1,14 @@
 package hotel.data;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
 import hotel.entity.Room;
 import hotel.entity.SearchRoom;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
-import org.springframework.jdbc.core.RowMapper;
 
 @Repository
 public class JdbcRoomRepository implements RoomRepository{
@@ -25,7 +18,7 @@ public class JdbcRoomRepository implements RoomRepository{
 		this.jdbc = jdbc;
 	}
 	public Iterable<Room> findAll(){
-		return jdbc.query("Select code, name, des, type, price, room_img, saleoff from Room_Hotel", this::mapRowtoRoom);
+		return jdbc.query("Select * from Room_Hotel", this::mapRowtoRoom);
 	}
 	public Room findbyname(String name) {
 		return jdbc.queryForObject("Select code, name, des, type, price, room_img, saleoff from Room_Hotel where name=?", this::mapRowtoRoom, name);
@@ -77,13 +70,14 @@ public class JdbcRoomRepository implements RoomRepository{
 	@Override
 	public void update(Room room) {
 		// TODO Auto-generated method stub
-		jdbc.update("Update Room_Hotel set code=?, name=?, description=?, type=?, price=?, room_img=?, saleoff=? where code=?", 
-				room.getCode()
-				,room.getName(),
+		jdbc.update("Update Room_Hotel set code=?, name=?, des=?, type=?, price=?, room_img=?, saleoff=? where code=?", 
+				room.getCode(),
+				room.getName(),
 				room.getDescription(),
 				room.getType(),
 				room.getPrice(),
 				room.getRoom_img(),
-				room.getSaleoff(),room.getCode());
+				room.getSaleoff(),
+				room.getCode());
 	}
 }
