@@ -16,5 +16,5 @@
  2. Phân chia công việc
   - Nguyễn Thị Thanh Nhàn: đăng kí, đăng nhập với tài khoản đã đăng kí, đăng xuất tài khoản với khách hàng, đăng nhập với tư cách admin, Khách hàng có thể tìm kiếm phòng trống theo ngày check in, ngày check out,  Đặt phòng, Xem giỏ hàng các phòng khách hàng muốn đặt, frontend: admin, khách hàng, database:bảng user, room, cart, order_details, Nhúng messenger vào website 
   - Trần Thị Ngọc Nhung: thanh toán phòng, xem thông tin chi tiết từng khách hàng, frontend: khách hàng, database:bảng service
-  - Bùi Tố Trinh: Xem thông tin, thông tin chi tiết khách hàng đã đăng kí trong hệ thống, tìm kiếm khách theo tên hoặc là số điện thoại, thống kê doanh thu theo phòng, Quản lí phòng: xem, thêm, sửa , xóa các phòng, frontend: admin, database: bảng stats + trigger revenue_update, room_update
+  - Bùi Tố Trinh: Admin: Xem thông tin, thông tin chi tiết khách hàng đã đăng kí trong hệ thống, tìm kiếm khách theo tên hoặc là số điện thoại, thống kê doanh thu theo phòng, Quản lí phòng: xem, thêm, sửa , xóa các phòng, frontend: admin, database: bảng stats + trigger revenue_update, room_update
     
