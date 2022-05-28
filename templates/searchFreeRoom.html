@@ -4,7 +4,28 @@
 	<title> Hotel Website </title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body
+<body>
+	<header class="header" id="navigation-menu">
+		<div class="container">
+			<nav>
+				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
+
+				<ul class="nav-menu">
+					<li> <a th:href="@{/adminpage}">Home</a></li>
+					<li> <a th:href="@{/manageRoom}">Manage room</a> </li>
+					<li> <a th:href="@{/statistical}">Statistical</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
+					<li>
+						<label th:text="${session.username}" th:value="${session.username}"></label>
+					</li>
+
+					<li> <a th:href="@{/}">Log out</a> </li>
+
+
+				</ul>
+			</nav>
+		</div>
+	</header>
 	<section class="room top" id="room">
 		<div class="container">
 			<div class="heading_top flex1">

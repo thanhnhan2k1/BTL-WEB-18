@@ -4,7 +4,7 @@
 <head>
 	<title>Details Customer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/admin.css}">
 </head>
 
 <body>
@@ -14,12 +14,17 @@
 				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
-					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a th:href="@{/}">Home</a></li>
-					<li> <a th:href="@{/rooms}">Manage room</a> </li>
-					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/adminpage}">Home</a></li>
+					<li> <a th:href="@{/manageRoom}">Manage room</a> </li>
+					<li> <a th:href="@{/statistical}">Statistical</a> </li>
 					<li> <a th:href="@{/customers}">Customer</a> </li>
-					<li> <a th:href="@{/login}">Login</a> </li>
+					<li>
+						<label th:text="${session.username}" th:value="${session.username}"></label>
+					</li>
+
+					<li> <a th:href="@{/}">Log out</a> </li>
+
+
 				</ul>
 			</nav>
 		</div>

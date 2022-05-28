@@ -15,17 +15,17 @@
 				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
-					<li> <a th:href="@{contact}" >Contact</a> </li>
 					<li> <a th:href="@{/adminpage}">Home</a></li>
 					<li> <a th:href="@{/manageRoom}">Manage room</a> </li>
 					<li> <a th:href="@{/statistical}">Statistical</a> </li>
 					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li>
-						<span th:text="${session.username}" th:value="${session.username}"></span>
-						<ul class="nav-menu">
-							<li> <a th:href="@{/}">Log out</a> </li>
-						<ul>
+						<label th:text="${session.username}" th:value="${session.username}"></label>
 					</li>
+
+					<li> <a th:href="@{/}">Log out</a> </li>
+
+
 				</ul>
 			</nav>
 		</div>
@@ -56,6 +56,13 @@
 						</div>
 					</div>
 					<div class="accordionItem close">
+						<h2 class="accordionIHeading">Type</h2>
+						<div class="accordionItemContent">
+							<p th:text="${room.type}">
+							</p>
+						</div>
+					</div>
+					<div class="accordionItem close">
 						<h2 class="accordionIHeading">Price</h2>
 						<div class="accordionItemContent">
 							<p><span th:text="${room.price}" th:value="${room.price}"></span> $/per night
@@ -63,10 +70,10 @@
 						</div>
 					</div>
 					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Available room</h2>
+						<h2 class="accordionIHeading">Sale of</h2>
 						<div class="accordionItemContent">
-							<p>Available <span th:text="${room.saleoff}" th:value="${room.saleoff}">Sale off:</span>
-							Free Room</p>
+							<p>Sale off <span th:text="${room.saleoff}" th:value="${room.saleoff}"></span> price
+							</p>
 						</div>
 					</div>
 					<div class="accordionItem close">

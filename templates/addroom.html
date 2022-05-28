@@ -14,25 +14,24 @@
 				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
-					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/adminpage}">Home</a></li>
 					<li> <a th:href="@{/manageRoom}">Manage room</a> </li>
 					<li> <a th:href="@{/statistical}">Statistical</a> </li>
 					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li>
 						<label th:text="${session.username}" th:value="${session.username}"></label>
-						<ul class="nav-menu">
-							<li> <a th:href="@{/}">Log out</a> </li>
-						<ul>
 					</li>
+
+					<li> <a th:href="@{/}">Log out</a> </li>
+
+
 				</ul>
 			</nav>
 		</div>
 	</header>
 
 	<section class="restaurant mtop" id="restaurant">
-		<form method="POST" th:action="@{/manageRoom/save}" th:object="${room}">
+		<form method="POST" th:action="@{/manageRoom/add}" th:object="${room}">
 			<div class="container">
 				<div class="heading">
 					<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
@@ -41,7 +40,7 @@
 			</div>
 			<div class="container flex">
 				<div class="left">
-					<img th:src="/image/r9.jpg"
+					<img th:src="@{/image/r9.jpg}"
 								alt="">
 				</div>
 				<div class="right">
