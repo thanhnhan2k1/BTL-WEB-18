@@ -43,9 +43,20 @@ public class RoomController {
 	}
 	
 	@GetMapping()
-	public String showRoomsList(Model model) {
+	public String showRoomsList(Model model, HttpSession session) {
 		addRoomsToModel(model);
+		String username = (String) session.getAttribute("username");
+		if(username==null) {
+			return "usererrors";
+		}
 		return "rooms";
+	}
+	@GetMapping("/detailRoom")
+	public String detailRooms(@RequestParam("code") int code, Model model) {
+		Room roomX = roomRepo.findbyCode(code);
+		model.addAttribute("room", roomX);
+		model.addAttribute("image", roomX.getRoom_img());
+		return "detailRoomuser";
 	}
 	
 	@PostMapping()
