@@ -48,10 +48,12 @@ public class StatisticalController {
 	}
 	
 	@GetMapping()
-	public String showstatistical(Model model) {
-		//model.addAttribute("search", new SearchRoom());
-		//int roomid = 0;
-		//model.addAttribute("roomid", roomid);
+	public String showstatistical(Model model, HttpSession session) {
+		int role = (int) session.getAttribute("role");
+		String username = (String) session.getAttribute("username");
+		if(role == 1|| username==null) {
+			return "error";
+		}
 		return "statistical";
 	}
 	@GetMapping("/room")
