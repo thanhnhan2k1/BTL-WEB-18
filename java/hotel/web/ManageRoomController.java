@@ -1,32 +1,22 @@
 package hotel.web;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import hotel.entity.Room;
 import hotel.data.RoomRepository;
-
-import org.springframework.validation.BindingResult;
-
+import hotel.entity.Room;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -49,7 +39,12 @@ public class ManageRoomController {
 	}
 
 	@GetMapping
-	public String showRoom() {
+	public String showRoom(HttpSession session) {
+		int role = (int) session.getAttribute("role");
+		String username = (String) session.getAttribute("username");
+		if( role == 1|| username==null) {
+			return "error";
+		}
 		return "manageroom";
 	}
 	
