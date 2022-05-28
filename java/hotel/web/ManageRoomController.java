@@ -39,12 +39,7 @@ public class ManageRoomController {
 	}
 
 	@GetMapping
-	public String showRoom(HttpSession session) {
-		int role = (int) session.getAttribute("role");
-		String username = (String) session.getAttribute("username");
-		if( role == 1|| username==null) {
-			return "error";
-		}
+	public String showRoom() {
 		return "manageroom";
 	}
 	
