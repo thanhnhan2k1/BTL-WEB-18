@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,12 +49,7 @@ public class ManageRoomController {
 	}
 
 	@GetMapping
-	public String showRoom(HttpSession session) {
-		int role = (int) session.getAttribute("role");
-		String username = (String) session.getAttribute("username");
-		if( role == 1|| username==null) {
-			return "error";
-		}
+	public String showRoom() {
 		return "manageroom";
 	}
 	
@@ -66,7 +62,7 @@ public class ManageRoomController {
 	
 	@GetMapping("/add")
 	public String addRoom(Model model) {
-		model.addAttribute("room", new Room(0,null,null,0,null,0));
+		model.addAttribute("room", new Room());
 		return "addroom";
 	}
 
@@ -87,22 +83,17 @@ public class ManageRoomController {
 	@PostMapping("/delete")
 	public String deleteRoom(Room room, Model model) {
 		roomRepo.delete(room);
-		model.addAttribute(room);
 		return "redirect:/manageRoom";
 	}
 
 	@PostMapping("/add")
-	public String saveRoom(Room room, Model model) {
-		log.info("Product saved: " + room);
-		try {
-			Room r = roomRepo.findbyCode(room.getCode());
+	public String saveRoom(@Valid Room room, Model model, BindingResult bindingResult) {
+		if (bindingResult.hasErrors())
 			return "addRoom";
-		}
-		catch(EmptyResultDataAccessException e) {
+		else {
 			roomRepo.save(room);
 			model.addAttribute(room);
 			log.info("Product saved: " + room);
-			e.printStackTrace();
 			return "redirect:/manageRoom";
 		}
 	}
